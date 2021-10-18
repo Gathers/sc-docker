@@ -54,12 +54,17 @@ https://www.oracle.com/technetwork/es/java/javase/downloads/jre8-downloads-21331
     }
     ```
 
-    2.4) Mac users: please cd to `sc-docker\scbw\local-docker` first.
+    2.4) This optional step should return `True`. Mac users: use `(cd ../scbw/local_docker && sha256sum -c starcraft.zip.sha256)` instead.
+    ```
+    (Get-FileHash starcraft.zip -Algorithm SHA256).Hash -eq (Get-Content starcraft.zip.sha256).Substring(0,64)
+    ```
+
+    2.5) Mac users: please cd to `sc-docker\scbw\local-docker` first.
     ```
     docker build -f game.dockerfile  -t "starcraft:game" .
     ```
 
-    2.5) Mac users: skip this step.
+    2.6) Mac users: skip this step.
     ```
     Pop-Location
     ```

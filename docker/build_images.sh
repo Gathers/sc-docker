@@ -10,5 +10,6 @@ docker build ${BUILD_ARGS} -f dockerfiles/java.dockerfile  -t starcraft:java   .
 
 pushd ../scbw/local_docker
 [ ! -f starcraft.zip ] && curl -SL 'http://files.theabyss.ru/sc/starcraft.zip' -o starcraft.zip
+sha256sum -c starcraft.zip.sha256
 docker build ${BUILD_ARGS} -f game.dockerfile  -t "starcraft:game" .
 popd
